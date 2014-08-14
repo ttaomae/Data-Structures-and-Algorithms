@@ -5,21 +5,43 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
-public class ArrayListTest
+@RunWith(Parameterized.class)
+public class ListTest
 {
     private static final int ITERATIONS = 10_000;
     private static final long RANDOM_SEED = 0L;
-    List<Integer> list;
+
+    @Parameters
+    public static Collection<Object[]> data()
+    {
+        return Arrays.asList(new Object[][] {
+            { ArrayList.class },
+            { LinkedList.class }
+        });
+    }
+
+    private Class<List<Integer>> listClass;
+    private List<Integer> list;
+
+    public ListTest(Class<List<Integer>> listClass)
+    {
+        this.listClass = listClass;
+    }
 
     @Before
-    public void init()
+    public void init() throws InstantiationException, IllegalAccessException
     {
-        list = new ArrayList<>();
+        list = listClass.newInstance();
     }
 
     @Test
