@@ -26,7 +26,8 @@ public class ListTest
     {
         return Arrays.asList(new Object[][] {
             { ArrayList.class },
-            { LinkedList.class }
+            { LinkedList.class },
+            { DoublyLinkedList.class }
         });
     }
 
