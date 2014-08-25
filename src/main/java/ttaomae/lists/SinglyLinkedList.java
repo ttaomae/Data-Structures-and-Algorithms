@@ -1,6 +1,6 @@
 package ttaomae.lists;
 
-public class LinkedList<E> implements List<E>
+public class SinglyLinkedList<E> implements List<E>
 {
     private Node head;
     private Node tail;
@@ -9,7 +9,7 @@ public class LinkedList<E> implements List<E>
     /**
      * Constructs a new empty LinkedList.
      */
-    public LinkedList()
+    public SinglyLinkedList()
     {
         this.head = null;
         this.size = 0;
