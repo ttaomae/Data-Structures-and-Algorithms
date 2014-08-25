@@ -26,8 +26,10 @@ public class BinarySearchTreeTest
     @Parameters
     public static Collection<Object[]> data()
     {
-        return Arrays
-                .asList(new Object[][] { { NonBalancingBinarySearchTree.class } });
+        return Arrays.asList(new Object[][] {
+            { NonBalancingBinarySearchTree.class },
+            { RedBlackTree.class }
+        });
     }
 
     private Class<BinarySearchTree<Integer>> treeClass;
