@@ -115,22 +115,7 @@ public class BinarySearchTreeTest
     @Test
     public void testRemove_randomAdd_randomRemove()
     {
-        Random rng = new Random(RANDOM_SEED);
-
         Integer[] addOrder = getRandomArray(ITERATIONS, RANDOM_SEED);
-
-        for (int n = 0; n < ITERATIONS; n++) {
-            // perform "inside-out" Fisher-Yates shuffle
-            // pick random location
-            int i = rng.nextInt(n + 1);
-            // if necessary, move whatever is at that location to the end of the
-            // sublist
-            if (i != n) {
-                addOrder[n] = addOrder[i];
-            }
-            // place next number at random location
-            addOrder[i] = n;
-        }
 
         for (int i = 0; i < ITERATIONS; i++) {
             tree.add(addOrder[i]);
